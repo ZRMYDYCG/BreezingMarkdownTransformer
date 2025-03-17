@@ -1,11 +1,23 @@
+<script setup lang="ts">
+const nuxtApp = useNuxtApp()
+
+// 是否首次加载
+const isFullLoading = ref(true)
+
+nuxtApp.hook('page:start', () => {
+  isFullLoading.value = true
+})
+
+nuxtApp.hook('page:finish', () => {
+  isFullLoading.value = false
+})
+</script>
+
 <template>
   <div>
-    <h1>Hello World</h1>
-    <el-button type="primary">Button</el-button>
-    <ColorMode></ColorMode>
+    <FullLoading v-if="isFullLoading" />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
-
-<script lang="ts" setup>
-import ColorMode from './components/ ColorMode/index.vue'
-</script>
