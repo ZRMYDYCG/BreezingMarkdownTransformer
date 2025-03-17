@@ -4,7 +4,15 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   modules: ['@nuxtjs/color-mode', '@element-plus/nuxt', '@nuxt/image', 'nuxt-icons'],
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      title:'HTMLToMD',
+      meta: [
+        { name: 'keywords', content: '爬虫' },
+        { name: 'description', content: '爬取网页并转换为Markdown格式' }
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.svg' }],
+    },
   },
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
