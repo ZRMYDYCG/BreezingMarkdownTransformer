@@ -1,13 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
+<template></template>
 
-<template>
-  <div>
-    <h1>Welcome to my website!</h1>
-  </div>
-</template>
-
-<style scoped>
-
-</style>

@@ -2,7 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/color-mode', '@element-plus/nuxt', '@nuxt/image', 'nuxt-icons'],
+  modules: ['@nuxtjs/color-mode', '@element-plus/nuxt', '@nuxt/image', 'nuxt-icons', '@nuxtjs/robots'],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
@@ -13,6 +13,19 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.svg' }],
     },
+  },
+  nitro: {
+    compressPublicAssets: true,
+    publicAssets: [
+      {
+        dir: 'public'
+      }
+    ]
+  },
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    }
   },
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
