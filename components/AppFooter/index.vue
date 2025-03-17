@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <div>
-    <h1>Welcome to my website!</h1>
-  </div>
+Footer
 </template>
 
 <style scoped>

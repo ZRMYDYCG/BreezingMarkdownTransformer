@@ -2,7 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/color-mode', '@element-plus/nuxt'],
+  modules: ['@nuxtjs/color-mode', '@element-plus/nuxt', '@nuxt/image', 'nuxt-icons'],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
