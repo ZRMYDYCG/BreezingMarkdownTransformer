@@ -49,13 +49,9 @@ async function toggleDark({ clientX: x, clientY: y }: MouseEvent) {
       :content="`切换${$colorMode.value === 'dark' ? '白天' : '黑夜'}模式`"
       placement="bottom"
   >
-    <el-button
-        circle
-        text
-        @click="toggleDark"
-    >
-      {{ $colorMode.value === 'dark' ? '🌙' : '🌞' }}
-    </el-button>
+    <div class="cursor-pointer" @click="toggleDark">
+      {{ $colorMode.value === 'dark' ? '☀️' : '🌚' }}
+    </div>
   </el-tooltip>
 </template>
 

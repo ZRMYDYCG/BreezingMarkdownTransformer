@@ -79,48 +79,53 @@ const downLoadFile = (url: string) => {
 
 <template>
   <client-only class="html2md-box">
-    <div class="title-view">
-      <a href="https://www.helloworld.net" target="_blank">
-        <img width="100" src="/favicon.svg">
-      </a>
-      <div>
-        <h1 class="h1">html 转 md</h1>
-        <h3 class="h3">支持 csdn、掘金、简书、segmentfault、cnblogs、oschina、微信文章</h3>
+    <div class="max-w-3xl mx-auto px-4 py-8">
+      <div class="title-view mb-12 text-center">
+        <div>
+          <h1 class="h1 text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            HTML 转 MD
+          </h1>
+          <h3 class="h3 text-lg text-gray-600 dark:text-gray-300">
+            支持 CSDN、掘金、简书、SegmentFault、博客园、开源中国、微信文章
+          </h3>
+        </div>
       </div>
-      <a href="https://github.com/helloworld-Co/html2md" target="_blank">
-        <img width="40" src="/favicon.svg">
-      </a>
-    </div>
 
-    <div class="url-box">
+      <!-- URL输入区域优化布局 -->
+      <div class="url-box flex flex-col md:flex-row gap-4 mb-8">
+        <el-input
+            class="flex-1 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            @keyup.enter.native="transformUrl"
+            v-model="url"
+            size="small"
+            placeholder="🔗 请输入文章地址"
+        />
+        <el-button
+            class="w-full md:w-auto transition-colors shadow-md"
+            @click="transformUrl"
+            :loading="isLoading"
+            size="small"
+            type="primary"
+        >
+          🚀 一键转换
+        </el-button>
+      </div>
+
       <el-input
-          @keyup.enter.native="transformUrl"
-          @focus="getInputFocus($event)"
-          v-model="url"
+          class="mb-6 shadow-sm focus:ring-2 focus:ring-blue-500"
+          v-model="title"
           size="small"
-          placeholder="请输入文章地址" />
-      <div>&nbsp;</div>
-      <el-button
-          @click="transformUrl"
-          :loading="isLoading"
-          size="small"
-          type="primary"
-      >👉一键转换</el-button>
-    </div>
-    <br/>
-    <el-input
-        @focus="getInputFocus($event)"
-        v-model="title"
-        size="small"
-        placeholder="标题（自动读取）" />
-    <br/>
-
-    <div class="input-box">
-      <v-md-editor
-          v-model="md"
-          height="500px"
-          @save="toDownload"
+          placeholder="📝 标题（自动读取）"
       />
+
+      <div class="markdown-box rounded-xl shadow-lg overflow-hidden border dark:border-gray-700">
+        <v-md-editor
+            v-model="md"
+            height="500px"
+            class="prose max-w-none"
+            @save="toDownload"
+        />
+      </div>
     </div>
   </client-only>
 </template>

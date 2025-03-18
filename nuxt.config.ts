@@ -14,6 +14,9 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.svg' }],
     },
   },
+  plugins: [
+    '~/plugins/element-icons.client.ts',
+  ],
   nitro: {
     compressPublicAssets: true,
     publicAssets: [
