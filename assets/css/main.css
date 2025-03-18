@@ -1,1 +1,6 @@
 @import "../../node_modules/tailwindcss";
+
+:root {
+    --color-primary: #409eff;
+    --color-background: #ffffff;
+}

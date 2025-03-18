@@ -1,9 +1,9 @@
 <template>
   <div class="layout-default h-screen w-screen relative">
     <AppHeader ref="headerRef" />
-    <div class="layout-main">
+    <el-scrollbar class="layout-main">
       <slot />
-    </div>
+    </el-scrollbar>
     <AppFooter ref="footerRef" />
   </div>
 </template>
