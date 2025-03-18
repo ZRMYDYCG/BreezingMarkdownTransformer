@@ -37,5 +37,6 @@
     "@types/turndown": "^5.0.5",
     "nuxt-icons": "^3.2.1",
     "release-it": "^18.1.2"
-  }
+  },
+  "version": "0.0.1"
 }
