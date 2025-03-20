@@ -104,7 +104,7 @@ const html2md: Html2Md = {
             const htmlContent = getBySelector('.article-detail')!
             const extraDom = htmlContent.querySelector('.ad-wrap')
             extraDom && extraDom.remove()
-            this.dom = htmlContent // 更正了这里的变量名
+            this.dom = htmlContent
             return this.returnFinalHtml()
         }
         // cnblogs
@@ -122,13 +122,13 @@ const html2md: Html2Md = {
             const htmlContent = getBySelector('.RichText')!
             const extraScript = htmlContent.querySelectorAll('noscript')
             extraScript.length > 0 && extraScript.forEach((v) => { v.remove() })
-            this.dom = htmlContent // 更正了这里的变量名
+            this.dom = htmlContent
             return this.returnFinalHtml()
         }
         // 慕课专栏
         if (this.qUrl.includes('www.imooc.com')) {
             const htmlContent = getBySelector('.article-con')
-            this.dom = htmlContent // 更正了这里的变量名
+            this.dom = htmlContent
             return this.returnFinalHtml()
         }
         // learnku
@@ -140,7 +140,7 @@ const html2md: Html2Md = {
             extraToc.length > 0 && extraToc.forEach((v) => { v.remove() })
             const extraLink = htmlContent.querySelectorAll('.reference-link')
             extraLink.length > 0 && extraLink.forEach((v) => { v.remove() })
-            this.dom = htmlContent // 更正了这里的变量名
+            this.dom = htmlContent
             return this.returnFinalHtml()
         }
 
@@ -173,7 +173,7 @@ export default defineEventHandler(async (event) => {
     } catch (error) {
         return {
             code: 0,
-            msg: '请求失败'
+            msg: '文章请求失败'
         }
     }
 })
