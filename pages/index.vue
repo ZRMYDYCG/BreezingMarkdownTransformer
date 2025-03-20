@@ -42,10 +42,13 @@ const transformUrl = async () => {
     const res = await $fetch<{code: number, title: string, html: string}>('/api/getUrlHtml', {
       params: { url: url.value }
     })
+    if(res.code === 0) {
+      throw new Error('解析失败')
+    }
     html.value = res.html
-    title.value = res.title
+    title.value = res.title   
   } catch {
-    // 处理错误
+    ElMessage.error('解析失败')
   } finally {
     isLoading.value = false
   }
